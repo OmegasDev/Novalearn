@@ -2,11 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["payhip.com"], // ✅ Add Payhip to the allowed domains
+    domains: ["payhip.com", "pe56d.s3.amazonaws.com"], // ✅ Allow both domains
     remotePatterns: [
       {
         protocol: "https",
         hostname: "payhip.com",
+      },
+      {
+        protocol: "https",
+        hostname: "pe56d.s3.amazonaws.com",
       },
     ],
   },

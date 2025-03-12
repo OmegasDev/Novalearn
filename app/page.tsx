@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <Books />
       <Offer />
-      <Affiliate commissionRate={0} />
+      <Affiliate commissionRate={40} />
       <SaaS />
       <Footer />
     </main>
