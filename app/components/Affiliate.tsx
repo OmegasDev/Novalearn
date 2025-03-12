@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import SignupPopup from "./SignupPopup"; // Ensure correct path
 
@@ -18,7 +19,7 @@ export default function AffiliateSection({ commissionRate }: AffiliateSectionPro
 
       {/* Description */}
       <p className="text-gray-700 max-w-2xl mx-auto">
-        Promote our books and earn a percentage on every sale. It's free and easy to start!
+        Promote our books and earn a percentage on every sale. It&apos;s free and easy to start!
       </p>
 
       {/* Benefits List */}
@@ -56,4 +57,5 @@ export default function AffiliateSection({ commissionRate }: AffiliateSectionPro
     </section>
   );
 }
+
 

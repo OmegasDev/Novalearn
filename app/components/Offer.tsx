@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image"; // ✅ Import next/image
 import { supabase } from "@/lib/supabaseClient";
 
 interface Book {
@@ -17,7 +18,11 @@ export default function OfferSection() {
 
   useEffect(() => {
     async function fetchFeaturedBook() {
-      const { data, error } = await supabase.from("books").select("*").order("id", { ascending: true }).limit(1);
+      const { data, error } = await supabase
+        .from("books")
+        .select("*")
+        .order("id", { ascending: true })
+        .limit(1);
 
       if (error) {
         console.error("Error fetching featured book:", error);
@@ -41,19 +46,23 @@ export default function OfferSection() {
 
   return (
     <section className="shadow-md py-16 px-8 flex flex-col items-center">
-      <h2 className="text-5xl font-bold text-center text-gray-900 mb-6"> Book of the Week</h2>
+      <h2 className="text-5xl font-bold text-center text-gray-900 mb-6">Book of the Week</h2>
 
       {featuredBook ? (
         <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row items-center p-6">
           {/* Book Cover */}
-          <img src={featuredBook.cover} alt={featuredBook.title} className="w-48 h-64 object-contain rounded-md" />
+          <Image
+            src={featuredBook.cover ?? "/book1.jpg"} // ✅ Use next/image
+            alt={featuredBook.title}
+            width={192} // ✅ Set width
+            height={256} // ✅ Set height
+            className="object-contain rounded-md"
+          />
 
           {/* Book Info */}
           <div className="flex-1 md:ml-6 text-center md:text-left">
             <h3 className="text-xl font-semibold text-gray-900">{featuredBook.title}</h3>
             <p className="text-gray-600 mt-2">{featuredBook.description}</p>
-
-            
 
             {/* Price & CTA */}
             <p className="text-blue-600 font-bold text-lg mt-4">{featuredBook.price}</p>
@@ -69,7 +78,6 @@ export default function OfferSection() {
             ) : (
               <button className="mt-4 px-6 py-3 bg-gray-400 text-white font-semibold rounded-md cursor-not-allowed">
                 Coming Soon
-                
               </button>
             )}
 

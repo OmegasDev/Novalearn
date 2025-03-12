@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ToolsSection() {
   const [email, setEmail] = useState("");
@@ -16,26 +17,33 @@ export default function ToolsSection() {
   return (
     <section id="tools" className="py-16 px-8 bg-gradient-to-b from-gray-100 to-gray-500 text-center">
       {/* Title */}
-      <h2 className="text-4xl font-bold text-gray-900 mb-4"> Coming Soon: Powerful Tools to Help You Succeed!</h2>
+      <h2 className="text-4xl font-bold text-gray-900 mb-4"> 
+        Coming Soon: Powerful Tools to Help You Succeed!
+      </h2>
 
       {/* Description */}
       <p className="text-gray-700 max-w-2xl mx-auto">
-        We're working on exciting tools to make your learning journey easier. Stay tuned for innovative resources that will enhance your experience.
+        We&apos;re working on exciting tools to make your learning journey easier. 
+        Stay tuned for innovative resources that will enhance your experience.
       </p>
 
       {/* Illustration (Placeholder for Now) */}
       <div className="flex justify-center mt-6">
-        <img 
+        <Image 
           src="/book1.jpg" 
-          alt="Futuristic Tools Preview" 
-          className="w-80 h-auto rounded-md shadow-lg"
+          alt="Futuristic Tools Preview"
+          width={320} 
+          height={200}
+          className="rounded-md shadow-lg"
         />
       </div>
 
       {/* CTA Form */}
       <div className="mt-6">
         {submitted ? (
-          <p className="text-green-600 font-semibold"> Thank you! You'll be notified when our tools are ready.</p>
+          <p className="text-green-600 font-semibold"> 
+            Thank you! You&apos;ll be notified when our tools are ready.
+          </p>
         ) : (
           <form onSubmit={handleSubmit} className="flex justify-center mt-4">
             <input
