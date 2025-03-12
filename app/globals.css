@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.font-opensans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.text-light-gray {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.text-dark-gray {
+  color: rgba(255, 255, 255, 0.6);
+}
